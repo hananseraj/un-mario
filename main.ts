@@ -4,7 +4,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 let mySprite: Sprite = null
-tiles.setTilemap(tilemap`level1`)
+scene.setBackgroundColor(9)
+tiles.setTilemap(tilemap`level3`)
 mySprite = sprites.create(img`
     . . . . . f f 4 4 f f . . . . . 
     . . . . f 5 4 5 5 4 5 f . . . . 
@@ -25,3 +26,5 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 5))
 mySprite.ay = 500
+controller.moveSprite(mySprite, 100, 0)
+scene.cameraFollowSprite(mySprite)
